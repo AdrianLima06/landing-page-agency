@@ -1,0 +1,379 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    display: grid;
+    grid-template-areas: "header header header header" 
+                          "hero hero hero hero"
+                          "about about about about"
+                          "services services services services"
+                          "projects projects projects projects"
+                          "footer footer footer footer";
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.header{
+    grid-area: header;
+    background-color: #fff;
+}
+
+.header .header-container{
+    display: flex;
+    padding: 20px 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 75px;
+}
+
+.header h1{
+    font-size: 3rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.header a:hover h1{
+    color: #FBE06D;
+}
+
+.header nav ul{
+    display: flex;
+}
+
+.header nav ul li a{
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 10px 30px;
+    transition: 0.3s;
+    border-radius: 50px;
+}
+
+.header nav ul li a:hover{
+    color: #fff;
+    background-color: #FBE06D;
+}
+
+.header .menu{
+    display: none;
+    width: 60px;
+    height: 60px;
+    align-items: flex-end;
+}
+
+.header nav label{
+    display: flex;
+    flex-direction: column;
+}
+
+.header .hamburguer{
+    background-color: #000;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.header .hamburguer:before, .header .hamburguer:after{
+     background-color: #000;
+     content: "";
+     display: block;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     transition: 0.2s ease-in-out;
+}
+
+.header .hamburguer:before{
+    top: -10px;
+}
+
+.header .hamburguer:after{
+    bottom: -10px;
+}
+
+.header input{
+    display: none;
+}
+
+.header input:checked ~ label .hamburger{
+    transform: rotate(45deg);
+}
+
+.header input:checked ~ label .menu-hamburger:before{
+    transform: rotate (90deg);
+    top: 0;
+}
+
+.header input:checked ~ label .menu-hamburger:after{
+    transform: rotate (90deg);
+    bottom: 0;
+}
+
+
+@media (max-width: 900px){
+    .header .menu{
+        display: block;
+    }
+
+    .header nav ul{
+        display: none;
+    }
+
+    .header input:checked ~ ul{
+        display: block;
+    }
+
+    .header nav{
+        position: absolute;
+        top: 8px;
+        right: 0;
+        z-index: 1;
+    }
+
+    .header nav ul{
+        width: 200px;
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .header nav ul a{
+        text-align: center;
+        padding: 20px;
+        display: block;
+    }
+
+
+}
+
+.hero{
+    grid-area: hero;
+    height: 89vh;
+    background: url('../img/lemons.jpg') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+}
+
+.hero h2{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+.hero:after{
+    content: url('../img/seta_preta.png');
+    height: 35px;
+    bottom: 40px;
+    position: absolute;
+}
+
+@media (max-width: 425px){
+    .hero{
+        height: 60vh;
+    }
+
+    .hero h2{
+        font-size: 2.5rem;
+    }
+}
+
+.about{
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    max-width: var(--max--width-size);
+    margin: 0 auto;
+}
+
+.about .item{
+    padding: 20%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.about .item h3{
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.about .item p{
+    font-size: 1.8rem;
+    margin: 30px 0;
+}
+
+.about .item .btn-know-more{
+    font-size: 1.6rem;
+    align-self: flex-start;
+}
+
+.about .item .btn-know-more:hover{
+    font-weight: 700;
+}
+
+
+.about .image{
+    height: 100%;
+    width: 100%;
+}
+
+.about .image.right{
+    background: url('../img/bridge.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.about .image.left{
+    background: url('../img/sky.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 425px){
+    .about .item{
+        text-align: center;
+    }
+
+    .about{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .about .item .btn-know-more{
+        font-size: 1.6rem;
+        align-self: center;
+    }
+}
+
+.services{
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.services .service{
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.services .service img{
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.services .service h3{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.services .service p{
+    font-size: 2rem;
+    font-weight: 400;
+    max-width: 400px;
+    margin: 20px auto 0;
+    line-height: 25px;
+}
+
+.services .service:nth-child(1){
+    background-color: aqua;
+}
+
+.services .service:nth-child(2){
+    background-color: lightpink;
+}
+
+@media (max-width: 425px){
+    .services{
+        grid-template-columns: 1fr;
+    }
+
+    .services .service h3{
+        font-size: 4rem;
+    }
+
+    .services .service p{
+        font-size: 1.8rem;
+    }
+
+}
+
+.projects{
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.projects img{
+    height: 100%;
+    transition: 0.3s;
+}
+
+.projects a:hover img{
+    opacity: 0.8;
+}
+
+@media (max-width: 768px){
+    .projects{
+        grid-template-columns: 1fr 1fr;
+        grid-row: 1fr 1fr;
+    }
+}
+
+@media (max-width: 425px){
+    .projects{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+.footer{
+    grid-area: footer;
+    display: flex;
+    background-color: lightgreen;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.footer address p{
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.footer h4{
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.footer nav{
+    margin: 50px 0;
+}
+
+.footer nav ul{
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.footer nav ul li a{
+    font-weight: 500;
+    font-size: 2rem;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.footer nav ul li a:hover{
+    font-weight: bold;
+    color: #fff;
+}
